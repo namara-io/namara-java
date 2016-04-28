@@ -1,11 +1,11 @@
 Namara
 ======
 
-The official Java client for the Namara Open Data service. [namara.io](http://namara.io)
+The official Java client for the Namara Open Data service. [namara.io](https://namara.io)
 
 ## Installation
 
-You need to install the pom.xml dependencies.
+You need to install the pom.xml dependencies using [Maven](https://maven.apache.org/index.html).
 
 ```bash
 git clone git@github.com:namara-io/namara-java.git
@@ -16,10 +16,10 @@ git clone git@github.com:namara-io/namara-java.git
 ### Instantiation
 
 You need a valid API key in order to access Namara (you can find it in your My Account details on namara.io).
-Update config.py with your API_KEY
 
 ```java
-import Namara
+import com.tdw.Namara;
+
 Namara namara = new Namara({YOUR_API_KEY});
 ```
 
@@ -31,36 +31,36 @@ Namara namara = new Namara({YOUR_API_KEY}, true);
 
 ### Getting Data
 
-To make a basic request to the Namara API you can call `get` on your instantiated object and pass it the ID of the dataset you want and the ID of the version of the data set:
+To make a basic request to the Namara API you can call `get` on your instantiated object and pass it the ID of the data set you want and the version of the data set:
 
 Synchronous:
 
 ```java
-response = namara.get("18b854e3-66bd-4a00-afba-8eabfc54f524", "en-2");
+response = namara.get("5885fce0-92c4-4acb-960f-82ce5a0a4650", "en-1");
 ```
 
-Without a third options argument passed, this will return data with the Namara default offset (0) and limit (10) applied. To specify options, you can pass an options argument:
+Without a third options argument passed, this will return data with the Namara default offset (0) and limit (250) applied. To specify options, you can pass an options argument:
 
 ```java
 HashMap<String, String> options = new HashMap<String, String>();
 options.put("offset", "0");
 options.put("limit", "150");
 
-namara.get('18b854e3-66bd-4a00-afba-8eabfc54f524', 'en-2', options);
+namara.get('5885fce0-92c4-4acb-960f-82ce5a0a4650', 'en-1', options);
 ```
 
 ### Options
 
-All [Namara data options](http://namara.io/#/api) are supported.
+All [Namara data options](https://namara.io/#/api) are supported.
 
 **Basic options**
 
 ```java
 HashMap<String, String> options = new HashMap<String, String>();
-options.put("select", "p0,p1");
-options.put("where", "p0 = 100 AND nearby(p3, 43.25, -123.1, 10km)");
+options.put("select", "town,geometry");
+options.put("where", "town = "TORONTO" AND nearby(geometry, 43.6, -79.4, 10km)");
 options.put("offset", "0");
-options.put("limit", "150");
+options.put("limit", "20");
 ```
 
 **Aggregation options**
@@ -79,10 +79,12 @@ options.put("operation", "geobounds(p3)");
 
 ### Running Tests
 
-You can run the test using your favorite IDE.
-
 From command line:
 
 ```bash
-java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore src/test/java/NamaraTest
+mvn test
 ```
+
+### License
+
+Apache License, Version 2.0

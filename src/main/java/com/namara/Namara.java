@@ -1,3 +1,5 @@
+package com.tdw;
+
 import java.io.*;
 import java.io.UnsupportedEncodingException;
 import java.net.*;
@@ -55,7 +57,7 @@ public class Namara {
     }
 
     public String getBasePath(String dataset, String version) {
-        return String.format("http://%s/%s/data_sets/%s/data/%s", this.host, this.apiVersion, dataset, version);
+        return String.format("https://%s/%s/data_sets/%s/data/%s", this.host, this.apiVersion, dataset, version);
     }
 
     public String getPath(String dataset, String version, Map<String, String> options) {

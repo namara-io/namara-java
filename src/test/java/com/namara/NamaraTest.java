@@ -1,3 +1,5 @@
+package com.tdw;
+
 import static org.junit.Assert.assertEquals;
 
 import com.google.gson.JsonArray;
@@ -24,54 +26,54 @@ public class NamaraTest {
 
     @Test
     public void getBasePath() {
-        assertEquals(subject.getBasePath(dataset, version), "http://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2");
+        assertEquals(subject.getBasePath(dataset, version), "https://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2");
     }
 
     @Test
     public void getPath() {
-        assertEquals(subject.getPath(dataset, version, options), "http://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2?api_key=myapikey&");
+        assertEquals(subject.getPath(dataset, version, options), "https://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2?api_key=myapikey&");
     }
 
     @Test
     public void getPathLimit() {
         options.put("limit", "1");
-        assertEquals(subject.getPath(dataset, version, options), "http://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2?api_key=myapikey&limit=1&");
+        assertEquals(subject.getPath(dataset, version, options), "https://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2?api_key=myapikey&limit=1&");
     }
 
     @Test
     public void getPathOffset() {
         options.put("offset", "1");
-        assertEquals(subject.getPath(dataset, version, options), "http://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2?api_key=myapikey&offset=1&");
+        assertEquals(subject.getPath(dataset, version, options), "https://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2?api_key=myapikey&offset=1&");
     }
 
     @Test
     public void getPathSelect() {
         options.put("select", "facility_code");
-        assertEquals(subject.getPath(dataset, version, options), "http://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2?api_key=myapikey&select=facility_code&");
+        assertEquals(subject.getPath(dataset, version, options), "https://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2?api_key=myapikey&select=facility_code&");
     }
 
     @Test
     public void getPathSum() {
         options.put("operation", "sum(facility_code)");
-        assertEquals(subject.getPath(dataset, version, options), "http://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2/aggregation?api_key=myapikey&operation=sum%28facility_code%29&");
+        assertEquals(subject.getPath(dataset, version, options), "https://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2/aggregation?api_key=myapikey&operation=sum%28facility_code%29&");
     }
 
     @Test
     public void getPathAvg() {
         options.put("operation", "avg(facility_code)");
-        assertEquals(subject.getPath(dataset, version, options), "http://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2/aggregation?api_key=myapikey&operation=avg%28facility_code%29&");
+        assertEquals(subject.getPath(dataset, version, options), "https://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2/aggregation?api_key=myapikey&operation=avg%28facility_code%29&");
     }
 
     @Test
     public void getPathMin() {
         options.put("operation", "min(facility_code)");
-        assertEquals(subject.getPath(dataset, version, options), "http://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2/aggregation?api_key=myapikey&operation=min%28facility_code%29&");
+        assertEquals(subject.getPath(dataset, version, options), "https://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2/aggregation?api_key=myapikey&operation=min%28facility_code%29&");
     }
 
     @Test
     public void testPathWhere() {
         options.put("where", "facility_code>1000");
-        assertEquals(subject.getPath(dataset, version, options), "http://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2?api_key=myapikey&where=facility_code%3E1000&");
+        assertEquals(subject.getPath(dataset, version, options), "https://api.namara.io/v0/data_sets/18b854e3-66bd-4a00-afba-8eabfc54f524/data/en-2?api_key=myapikey&where=facility_code%3E1000&");
     }
 
     @Test
