@@ -57,8 +57,8 @@ All [Namara data options](https://namara.io/#/api) are supported.
 
 ```java
 HashMap<String, String> options = new HashMap<String, String>();
-options.put("select", "town,geometry");
-options.put("where", "town = 'TORONTO' AND nearby(geometry, 43.6, -79.4, 10km)");
+options.put("select", "market_nam,website");
+options.put("where", "town = 'Toronto' AND nearby(geometry, 43.6, -79.4, 10km)");
 options.put("offset", "0");
 options.put("limit", "20");
 ```
