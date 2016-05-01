@@ -46,7 +46,7 @@ HashMap<String, String> options = new HashMap<String, String>();
 options.put("offset", "0");
 options.put("limit", "150");
 
-namara.get('5885fce0-92c4-4acb-960f-82ce5a0a4650', 'en-1', options);
+namara.get("5885fce0-92c4-4acb-960f-82ce5a0a4650", "en-1", options);
 ```
 
 ### Options
@@ -58,7 +58,7 @@ All [Namara data options](https://namara.io/#/api) are supported.
 ```java
 HashMap<String, String> options = new HashMap<String, String>();
 options.put("select", "town,geometry");
-options.put("where", "town = "TORONTO" AND nearby(geometry, 43.6, -79.4, 10km)");
+options.put("where", "town = 'TORONTO' AND nearby(geometry, 43.6, -79.4, 10km)");
 options.put("offset", "0");
 options.put("limit", "20");
 ```
